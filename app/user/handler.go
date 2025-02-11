@@ -37,3 +37,10 @@ func (s *UserServiceImpl) Login(ctx context.Context, req *user.LoginReq) (resp *
 
 	return resp, err
 }
+
+// Delete implements the UserServiceImpl interface.
+func (s *UserServiceImpl) Delete(ctx context.Context, req *user.DeleteReq) (resp *user.DeleteResp, err error) {
+	resp, err = service.NewDeleteService(ctx).Run(req)
+
+	return resp, err
+}
