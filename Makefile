@@ -30,11 +30,6 @@ gen-server: ## gen service code of {svc}. example: make gen-server svc=product
 gen-frontend:
 	@cd app/frontend && cwgo server -I ../../idl --type HTTP --service frontend --module github.com/cloudwego/biz-demo/gomall/app/frontend --idl ../../idl/frontend/checkout_page.proto
 
-.PHONY: gen-auth
-gen-auth:
-	@cd app/auth && cwgo server -I ../../idl --type RPC --service auth --module github.com/cloudwego/biz-demo/gomall/app/auth --idl ../../idl/auth.proto
-
-
 ##@ Build
 
 .PHONY: watch-frontend
