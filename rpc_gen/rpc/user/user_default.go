@@ -33,3 +33,12 @@ func Delete(ctx context.Context, req *user.DeleteReq, callOptions ...callopt.Opt
 	}
 	return resp, nil
 }
+
+func Update(ctx context.Context, req *user.UpdateReq, callOptions ...callopt.Option) (resp *user.UpdateResp, err error) {
+	resp, err = defaultClient.Update(ctx, req, callOptions...)
+	if err != nil {
+		klog.CtxErrorf(ctx, "Update call failed,err =%+v", err)
+		return nil, err
+	}
+	return resp, nil
+}

@@ -42,3 +42,7 @@ func Create(db *gorm.DB, ctx context.Context, user *User) error {
 func Delete(db *gorm.DB, ctx context.Context, user *User) error {
 	return db.WithContext(ctx).Delete(user).Error
 }
+
+func Update(db *gorm.DB, ctx context.Context, user *User) error {
+	return db.WithContext(ctx).Model(&User{}).Where("id = ?", user.ID).Updates(user).Error
+}
